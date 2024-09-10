@@ -1,0 +1,21 @@
+name: window - Litemanager
+on:
+workflow_dispatch:
+
+Jobs:
+build:
+name:start building...
+run-on: window-latest
+timeout-minutes: 9999
+
+steps:
+- name: downloading & Installing Essentials
+run: |
+Invoke-webrequest -Url "https://gitlab.com/chamod12/1m_win-10_github_rdp/-/raw/main/Downloads.bat" -Outfile "Down
+cmd /c Downloads.bat
+
+- name: Connect to LiteManager
+run: cmd /c show.bat
+
+- name: Time Counter
+run: cmd /c loop.bat
